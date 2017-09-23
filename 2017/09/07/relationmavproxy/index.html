@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="bushipeien">
 <meta property="og:description" content="I：The Relation Between Mavproxy and DronekitI would like to list out some materials before begining, which are all from dronkit.   This topic explains how to set up and run DroneKit-Python (within MAV">
 <meta property="og:image" content="https://github.com/dhuangis/pictureforwrite/blob/master/26.png?raw=true">
-<meta property="og:updated_time" content="2017-09-13T03:10:38.138Z">
+<meta property="og:updated_time" content="2017-09-23T13:21:07.791Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mavproxy, Dronekit And Mission Planner">
 <meta name="twitter:description" content="I：The Relation Between Mavproxy and DronekitI would like to list out some materials before begining, which are all from dronkit.   This topic explains how to set up and run DroneKit-Python (within MAV">
@@ -178,7 +178,7 @@
 </li>
 </ul>
 </blockquote>
-<p><strong>Then, some important information following reveal the relation between them.</strong></p>
+<p><strong>Then, some important information following indicates the relation between them.</strong></p>
 <blockquote>
 <ul>
 <li>DroneKit is implemented as a MAVProxy module (MAVProxy is installed automatically with DroneKit). The best way to load the DroneKit module into MAVProxy is to add it to the startup script (mavinit.scr).</li>
@@ -186,13 +186,13 @@
 </li>
 </ul>
 </blockquote>
-<p><strong>So, simple put, the dronkit is one of module of Maxproxy.It’s time to see what’s the meaning of this. It sounds like the module of linux.</strong></p>
+<p><strong>So, simple put, the dronkit is one of the module of Maxproxy. It’s time to see what’s the meaning of this. It sounds like the module of linux.</strong></p>
 <blockquote>
 <p>MAVProxy can be extended with modules. These run in parallel threads to the main MAVProxy program in order to maintain overall stability.Modules can include such things as GUI elements and diagnostic and monitoring applications.</p>
 </blockquote>
 <p><strong>This problem has been solved, go on with our work.</strong></p>
-<p><font color="#ff00000">NOTE: I made some mistakes that the above text is from dronekit whose version is 1.5.X. whereas it is independent of Marproxy after 2.0.X.</font><br><img src="https://github.com/dhuangis/pictureforwrite/blob/master/26.png?raw=true" alt="2"></p>
-<h2 id="II-Compare-Mavproxy-and-Misson-Planner"><a href="#II-Compare-Mavproxy-and-Misson-Planner" class="headerlink" title="II: Compare Mavproxy and Misson Planner"></a><strong>II: Compare Mavproxy and Misson Planner</strong></h2><p><strong>I search this question on the websites but get nothing except <a href="https://stackoverflow.com/questions/33613948/connect-dronekit-and-mission-planner-simultaneously-to-pixhawk-over-3dr-radio" target="_blank" rel="external">stackoverflow</a>, maybe it’s a strange quetion. I find there is cooperation relation between mavproxy and misson plannner. And most pepole want to use mavproxy to control the UAV, meanwile, observe the data from autopilot in misson planner.</strong></p>
+<p><font color="#ff00000">NOTE: I made some mistakes that the above text is from the dronekit whose version is 1.5.X. whereas it is independent of Marproxy after 2.0.X.</font><br><img src="https://github.com/dhuangis/pictureforwrite/blob/master/26.png?raw=true" alt="2"></p>
+<h2 id="II-Compare-Mavproxy-and-Misson-Planner"><a href="#II-Compare-Mavproxy-and-Misson-Planner" class="headerlink" title="II: Compare Mavproxy and Misson Planner"></a><strong>II: Compare Mavproxy and Misson Planner</strong></h2><p><strong>I search this question but get nothing except <a href="https://stackoverflow.com/questions/33613948/connect-dronekit-and-mission-planner-simultaneously-to-pixhawk-over-3dr-radio" target="_blank" rel="external">stackoverflow</a>, maybe it’s a strange quetion. I find there is cooperation relation between mavproxy and misson plannner. And most pepole want to use mavproxy to control the UAV, meanwile, observe the data from the autopilot in misson planner.</strong></p>
 <p> <strong>I will do some basic experiments to compare the latency in next post.</strong></p>
 <h2 id="III-The-Interface-Between-Matlab-And-Pyhon"><a href="#III-The-Interface-Between-Matlab-And-Pyhon" class="headerlink" title="III: The Interface Between Matlab And Pyhon."></a><strong>III: The Interface Between Matlab And Pyhon.</strong></h2><ul>
 <li><strong>To call Python functions from MATLAB</strong><br><img src="https://github.com/dhuangis/pictureforwrite/blob/master/24.png?raw=true" alt="a"></li>
@@ -201,7 +201,7 @@
 <ul>
 <li><strong>To call Matlab functions from Python</strong><br><img src="https://github.com/dhuangis/pictureforwrite/blob/master/25.png?raw=true" alt="b"><br><strong>The above context is from <a href="http://cn.mathworks.com/help/matlab/matlab-engine-for-python.html" target="_blank" rel="external">matlab</a></strong>.</li>
 </ul>
-<p><strong>On the surface, it’s very convenient to call each other. But, just look easy, hard to do. I will have a try next post.</strong></p>
+<p><strong>On the surface, it’s very convenient to call each other. But, just look easy, hard to do. I will have a try in the next post.</strong></p>
 
         </div>
         <footer class="article-footer">
@@ -209,7 +209,7 @@
 
 
 
-    <a data-url="/2017/09/07/relationmavproxy/" data-id="cj7kgxq6x0002kku2les12840" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+    <a data-url="/2017/09/07/relationmavproxy/" data-id="cj7xcfzqg00030su2zqbhd7ja" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -346,22 +346,16 @@
         
 <nav id="article-nav">
     
-        <a href="/2017/09/07/copyright/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2017/09/07/interaction/" id="article-nav-newer" class="article-nav-link-wrap">
         <strong class="article-nav-caption">més nou</strong>
         <p class="article-nav-title">
         
-            CopyRight
+            Hardware Loop Experiment(continuing..)
         
         </p>
         <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
     </a>
     
-    
-        <a href="/2017/09/07/interaction/" id="article-nav-older" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">antic</strong>
-        <p class="article-nav-title">Hardware Loop Experiment(continuing..)</p>
-        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
-        </a>
     
 </nav>
 
@@ -388,7 +382,7 @@
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/2017/09/07/relationmavproxy/" class="title">Mavproxy, Dronekit And Mission Planner</a></p>
+                            <p class="item-title"><a href="/2017/09/07/interaction/" class="title">Hardware Loop Experiment(continuing..)</a></p>
                             <p class="item-date"><time datetime="2017-09-07T08:46:25.000Z" itemprop="datePublished">2017-09-07</time></p>
                         </div>
                     </li>
@@ -397,7 +391,7 @@
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/2017/09/07/interaction/" class="title">Hardware Loop Experiment(continuing..)</a></p>
+                            <p class="item-title"><a href="/2017/09/07/relationmavproxy/" class="title">Mavproxy, Dronekit And Mission Planner</a></p>
                             <p class="item-date"><time datetime="2017-09-07T08:46:25.000Z" itemprop="datePublished">2017-09-07</time></p>
                         </div>
                     </li>
