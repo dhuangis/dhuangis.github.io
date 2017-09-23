@@ -15,7 +15,7 @@
 <meta property="og:url" content="/2017/09/07/interaction/index.html">
 <meta property="og:site_name" content="bushipeien">
 <meta property="og:description" content="I : Closed Loop ExperimentBefore start, i recommend this gitter talk for a quick overview. Due to the lack of the basic knowledge of Mavlink, something is not easy for me. I hope to make the complex i">
-<meta property="og:updated_time" content="2017-09-23T13:09:33.763Z">
+<meta property="og:updated_time" content="2017-09-23T13:35:10.377Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hardware Loop Experiment(continuing..)">
 <meta name="twitter:description" content="I : Closed Loop ExperimentBefore start, i recommend this gitter talk for a quick overview. Due to the lack of the basic knowledge of Mavlink, something is not easy for me. I hope to make the complex i">
@@ -162,7 +162,7 @@
         <div class="article-entry" itemprop="articleBody">
             <h2 id="I-Closed-Loop-Experiment"><a href="#I-Closed-Loop-Experiment" class="headerlink" title="I : Closed Loop Experiment"></a><strong>I : Closed Loop Experiment</strong></h2><p>Before start, i recommend this <a href="https://gitter.im/dronekit/dronekit-python?at=561aa20e4e0fa3e55448197d" target="_blank" rel="external">gitter talk</a> for a quick overview. Due to the lack of the basic knowledge of Mavlink, something is not easy for me. I hope to make the complex issues simple.</p>
 <p>Frist, i have a idea that the pixhawk2 send mavlink messgaes to the GSC via 3DR radios while receving the messgaes by the companion computer via UART. We should analyses it’s dismerits and merits.</p>
-<p>Obviously, the latency of the connect via UART is lower than that via RF-link. But we have to use 2nd RF radio to connect between GSC and pixhawk. Actually, we expect the companion computer ( such as edison) can relay the STATUS messgaes to the GCS. So, i just compromise myself in some respects.</p>
+<p>Obviously, the latency of the connect via UART is lower than that via RF-link. But we have to use 2nd RF radio to connect between the GSC and pixhawk. Actually, we expect the companion computer ( such as edison) can relay the STATUS messgaes to the GCS. So, i just compromise myself in some respects.</p>
 <p>Referring to <a href="http://ardupilot.org/copter/docs/traditional-helicopters.html" target="_blank" rel="external">helicopter</a>, i have quickly completed the connection. it’s worth to make efforts to highlight something. When arming, the messgaes “Prearm : motor interlock enabled” appears. And i puzzled over this problem as i don’t use the feature of the motor interlock. Then, i ask for helps in the official discussion forum ：<a href="https://discuss.ardupilot.org/t/prarm-motor-interlock-enabled/21056" target="_blank" rel="external">ardupilot</a>. But i get nothing until now. Finally, i find a way to solve this prolem.</p>
 <ul>
 <li>Set CH8_OPT   32</li>
@@ -170,16 +170,16 @@
 <li>Keep the CH8 swith off when arming.</li>
 <li>Keep the CH8 swith on after armed to make the motor spin.</li>
 </ul>
-<p><font color="#ff00ff">NOTE:<br>During the process, i have tried to modify the code in AP_ARMING.cpp and comment lines relative to the motor interlock. Although the messgaes above disapper, i encounter some new problems, such as “prearm: check firmware…”. If you have tracked the code, you would knew the latter is caused by the former.</font></p>
-<p>Due to the lack of some electirc componets such as  transverters, which translate PWM to PPM, i haven’t verify the whole system. Aimming to simplify the system. i divide the work into two parts. <strong>First, i will connect pixhawk2 and heilcopter without the FBL to complete the whole system. Second, mounting FBL to Helicopter make a system composed by autopilot and FBL.</strong></p>
-<h3 id="1-1-Hardware-Loop-without-FBL"><a href="#1-1-Hardware-Loop-without-FBL" class="headerlink" title="1.1 Hardware Loop without FBL"></a><strong>1.1 Hardware Loop without FBL</strong></h3>
+<p><font color="#ff00ff">NOTE:<br>During the process, i have tried to modify the code in AP_ARMING.cpp and comment lines relative to the motor interlock. Although the messgaes above disapper, i encounter some new problems, such as “prearm: check firmware…”. If you were to track the code, you would know the latter is caused by the former.</font></p>
+<p>Due to the lack of some electirc componets such as  transverters, which translate PWM to PPM, i haven’t verify the whole system. Aimming to simplify the system. i divide the work into two parts. <strong>First, i will connect pixhawk2 and heilcopter without the FBL to complete the whole system. Second, mounting the FBL to the helicopter makes a system composed by the autopilot and FBL.</strong></p>
+<h3 id="1-1-Hardware-Loop-Without-The-FBL"><a href="#1-1-Hardware-Loop-Without-The-FBL" class="headerlink" title="1.1 Hardware Loop Without The FBL"></a><strong>1.1 Hardware Loop Without The FBL</strong></h3>
         </div>
         <footer class="article-footer">
             
 
 
 
-    <a data-url="/2017/09/07/interaction/" data-id="cj7xcfzqg00020su2efw0l9ah" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+    <a data-url="/2017/09/07/interaction/" data-id="cj7xcxxfv0000gsu2utwhmvjr" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -316,20 +316,10 @@
         
 <nav id="article-nav">
     
-        <a href="/2017/09/07/copyright/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">més nou</strong>
-        <p class="article-nav-title">
-        
-            CopyRight
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
     
-    
-        <a href="/2017/09/07/relationmavproxy/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2017/09/07/copyright/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">antic</strong>
-        <p class="article-nav-title">Mavproxy, Dronekit And Mission Planner</p>
+        <p class="article-nav-title">CopyRight</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -349,7 +339,7 @@
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/2017/09/07/copyright/" class="title">CopyRight</a></p>
+                            <p class="item-title"><a href="/2017/09/07/interaction/" class="title">Hardware Loop Experiment(continuing..)</a></p>
                             <p class="item-date"><time datetime="2017-09-07T08:46:25.000Z" itemprop="datePublished">2017-09-07</time></p>
                         </div>
                     </li>
@@ -358,7 +348,7 @@
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/2017/09/07/interaction/" class="title">Hardware Loop Experiment(continuing..)</a></p>
+                            <p class="item-title"><a href="/2017/09/07/copyright/" class="title">CopyRight</a></p>
                             <p class="item-date"><time datetime="2017-09-07T08:46:25.000Z" itemprop="datePublished">2017-09-07</time></p>
                         </div>
                     </li>
