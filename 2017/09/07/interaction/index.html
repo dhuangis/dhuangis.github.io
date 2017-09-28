@@ -9,16 +9,18 @@
     
         <meta name="keywords" content="" />
     
-    <meta name="description" content="I : Closed Loop ExperimentBefore start, i recommend this gitter talk for a quick overview. Due to the lack of the basic knowledge of Mavlink, something is not easy for me. I hope to make the complex i">
+    <meta name="description" content="I : Closed Loop ExperimentBefore start, i recommend this gitter talk for a quick overview. Due to the lack of basic knowlegae of Mavlink, something is not easy for me. I should compose myself and rela">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hardware Loop Experiment(continuing..)">
 <meta property="og:url" content="/2017/09/07/interaction/index.html">
 <meta property="og:site_name" content="bushipeien">
-<meta property="og:description" content="I : Closed Loop ExperimentBefore start, i recommend this gitter talk for a quick overview. Due to the lack of the basic knowledge of Mavlink, something is not easy for me. I hope to make the complex i">
-<meta property="og:updated_time" content="2017-09-23T13:35:10.377Z">
+<meta property="og:description" content="I : Closed Loop ExperimentBefore start, i recommend this gitter talk for a quick overview. Due to the lack of basic knowlegae of Mavlink, something is not easy for me. I should compose myself and rela">
+<meta property="og:image" content="https://github.com/dhuangis/pictureforwrite/blob/master/QQ%E6%88%AA%E5%9B%BE20170928131610.png?raw=true">
+<meta property="og:updated_time" content="2017-09-28T07:34:44.909Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hardware Loop Experiment(continuing..)">
-<meta name="twitter:description" content="I : Closed Loop ExperimentBefore start, i recommend this gitter talk for a quick overview. Due to the lack of the basic knowledge of Mavlink, something is not easy for me. I hope to make the complex i">
+<meta name="twitter:description" content="I : Closed Loop ExperimentBefore start, i recommend this gitter talk for a quick overview. Due to the lack of basic knowlegae of Mavlink, something is not easy for me. I should compose myself and rela">
+<meta name="twitter:image" content="https://github.com/dhuangis/pictureforwrite/blob/master/QQ%E6%88%AA%E5%9B%BE20170928131610.png?raw=true">
     
 
     
@@ -160,26 +162,37 @@
         
         
         <div class="article-entry" itemprop="articleBody">
-            <h2 id="I-Closed-Loop-Experiment"><a href="#I-Closed-Loop-Experiment" class="headerlink" title="I : Closed Loop Experiment"></a><strong>I : Closed Loop Experiment</strong></h2><p>Before start, i recommend this <a href="https://gitter.im/dronekit/dronekit-python?at=561aa20e4e0fa3e55448197d" target="_blank" rel="external">gitter talk</a> for a quick overview. Due to the lack of the basic knowledge of Mavlink, something is not easy for me. I hope to make the complex issues simple.</p>
-<p>Frist, i have a idea that the pixhawk2 send mavlink messgaes to the GSC via 3DR radios while receving the messgaes by the companion computer via UART. We should analyses it’s dismerits and merits.</p>
-<p>Obviously, the latency of the connect via UART is lower than that via RF-link. But we have to use 2nd RF radio to connect between the GSC and pixhawk. Actually, we expect the companion computer ( such as edison) can relay the STATUS messgaes to the GCS. So, i just compromise myself in some respects.</p>
-<p>Referring to <a href="http://ardupilot.org/copter/docs/traditional-helicopters.html" target="_blank" rel="external">helicopter</a>, i have quickly completed the connection. it’s worth to make efforts to highlight something. When arming, the messgaes “Prearm : motor interlock enabled” appears. And i puzzled over this problem as i don’t use the feature of the motor interlock. Then, i ask for helps in the official discussion forum ：<a href="https://discuss.ardupilot.org/t/prarm-motor-interlock-enabled/21056" target="_blank" rel="external">ardupilot</a>. But i get nothing until now. Finally, i find a way to solve this prolem.</p>
+            <h2 id="I-Closed-Loop-Experiment"><a href="#I-Closed-Loop-Experiment" class="headerlink" title="I : Closed Loop Experiment"></a><strong>I : Closed Loop Experiment</strong></h2><p>Before start, i recommend this <a href="https://gitter.im/dronekit/dronekit-python?at=561aa20e4e0fa3e55448197d" target="_blank" rel="external">gitter talk</a> for a quick overview. Due to the lack of basic knowlegae of Mavlink, something is not easy for me. I should compose myself and relax a while to make the complex issues simple.</p>
+<p>Frist, i have a idea that the pixhawk2 send mavlink messgaes to GSC via 3DR radios while receving the messgaes by companion computer via UART. We should analyses it’s<br>dismerits and merits.</p>
+<p>Obviously, the latency of connect via UART is lower than that via RF-link. But we have to use 2nd RF radio to connect between GSC and pixhawk. Actually, we hope the companion computer ( such as edison) can relay the STATUS messgaes to GCS. So, i just compromise myself in some respects.</p>
+<p> Referring to <a href="http://ardupilot.org/copter/docs/traditional-helicopters.html" target="_blank" rel="external">helicopter</a>, i<br> have quickly completed the connection. it’s worth to make efforts to highlight something.</p>
+<p> When arming, the messgaes “Prearm : motor interlock enabled” appears. And i puzzled for over this problem as i don’t use motor interlock feature. Then, i ask for help in official discussion forum ：<a href="https://discuss.ardupilot.org/t/prarm-motor-interlock-enabled/21056" target="_blank" rel="external">ardupilot</a>. But i get nothing until now.</p>
+<p>Finally, i find a way to solve this prolem.</p>
 <ul>
 <li>Set CH8_OPT   32</li>
 <li>Set ARM_CHECK 0</li>
 <li>Keep the CH8 swith off when arming.</li>
-<li>Keep the CH8 swith on after armed to make the motor spin.</li>
+<li>Keep the CH8 swith on after armed to make motor spin.</li>
 </ul>
-<p><font color="#ff00ff">NOTE:<br>During the process, i have tried to modify the code in AP_ARMING.cpp and comment lines relative to the motor interlock. Although the messgaes above disapper, i encounter some new problems, such as “prearm: check firmware…”. If you were to track the code, you would know the latter is caused by the former.</font></p>
-<p>Due to the lack of some electirc componets such as  transverters, which translate PWM to PPM, i haven’t verify the whole system. Aimming to simplify the system. i divide the work into two parts. <strong>First, i will connect pixhawk2 and heilcopter without the FBL to complete the whole system. Second, mounting the FBL to the helicopter makes a system composed by the autopilot and FBL.</strong></p>
-<h3 id="1-1-Hardware-Loop-Without-The-FBL"><a href="#1-1-Hardware-Loop-Without-The-FBL" class="headerlink" title="1.1 Hardware Loop Without The FBL"></a><strong>1.1 Hardware Loop Without The FBL</strong></h3>
+<p><font color="#ff00ff">NOTE:<br>During this process, i have tried to modify the code in AP_ARMING.cpp and comment lines relative to motor interlock. Although the messgaes above disapper, i encounter some new problem, such as “prearm: check firmware…”. If you have tracked the code, you would kenow new problem is caused by old problem.</font></p>
+<p>Due to the lack of some electirc componet such as a transverter, which translate PWM to PPM, i haven’t verify the whole system.</p>
+<p>Aimming to simplify the system. i divide the work into two parts. <strong>First, i will connect pixhawk2 and heilcopter with FBL to complete whole system. Second, we should configure that through the MP, including the MicroBeast.</strong></p>
+<h3 id="1-1-Hardware-Loop-with-FBL"><a href="#1-1-Hardware-Loop-with-FBL" class="headerlink" title="1.1 Hardware Loop with FBL"></a><strong>1.1 Hardware Loop with FBL</strong></h3><h4 id="1-1-1-Overall-Design"><a href="#1-1-1-Overall-Design" class="headerlink" title="　1.1.1 Overall Design"></a>　<strong>1.1.1 Overall Design</strong></h4><p>Drive signals from the Mavproxy running on the intel control the output of pixawk2 directly. And feedback information ( STATUS messages ) from the pixhawk2<br>relays to the mission planner on your PC.</p>
+<p>The SecureCRT is a way to access to your Embeded system via TCP/IP, so you can run the Mavproxy or dronekit to do some missions or scripts.</p>
+<p><font color="#ff00ff">NOTE:<br>During this process, i have ignored the latency in this way. The recommend method is to modify the code and replace it with your own program as you are<br>familiar with the code of arduilot, which is not easy.</font></p>
+<p><img src="https://github.com/dhuangis/pictureforwrite/blob/master/QQ%E6%88%AA%E5%9B%BE20170928131610.png?raw=true" alt="all"></p>
+<p>　　　　　　　　　　　　　　　　　　<strong>Fig. 1</strong></p>
+<h4 id="1-1-2-Connecting-pixhawk2"><a href="#1-1-2-Connecting-pixhawk2" class="headerlink" title="　1.1.2 Connecting pixhawk2"></a>　<strong>1.1.2 Connecting pixhawk2</strong></h4><p>The connecting is very simple, referring to the  <a href="http://ardupilot.org/copter/docs/trad-heli-connecting-your-rc-input-servos-and-motors.html" target="_blank" rel="external">ardupilot</a>.<br><img src="https://github.com/dhuangis/pictureforwrite/blob/master/100.jpg?raw=true" alt="a"><br>　　　　　　　　　　　　　　　　　　<strong>Fig. 2</strong></p>
+<p><strong>But, the configuration of the helicopter is very complex and requires some aircraft professional skills.</strong></p>
+<p>Some connect details:</p>
+<h4 id="1-1-3-Configuring-pixhawk2"><a href="#1-1-3-Configuring-pixhawk2" class="headerlink" title="　1.1.3 Configuring pixhawk2"></a>　<strong>1.1.3 Configuring pixhawk2</strong></h4><h3 id="1-2-Self-Test"><a href="#1-2-Self-Test" class="headerlink" title="1.2 Self Test"></a><strong>1.2 Self Test</strong></h3><h4 id="1-2-1-Automatic-Scripts"><a href="#1-2-1-Automatic-Scripts" class="headerlink" title="　1.2.1 Automatic Scripts"></a>　<strong>1.2.1 Automatic Scripts</strong></h4><h4 id="1-2-2-Results"><a href="#1-2-2-Results" class="headerlink" title="　1.2.2 Results"></a>　<strong>1.2.2 Results</strong></h4>
         </div>
         <footer class="article-footer">
             
 
 
 
-    <a data-url="/2017/09/07/interaction/" data-id="cj845agqv000220u2vum4vxh8" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+    <a data-url="/2017/09/07/interaction/" data-id="cj845d9cs0002bou27zng0vbf" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
