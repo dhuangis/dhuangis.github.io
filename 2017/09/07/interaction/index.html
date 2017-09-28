@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="bushipeien">
 <meta property="og:description" content="I : Closed Loop ExperimentBefore start, i recommend this gitter talk for a quick overview. Due to the lack of basic knowlegae of Mavlink, something is not easy for me. I should compose myself and rela">
 <meta property="og:image" content="https://github.com/dhuangis/pictureforwrite/blob/master/QQ%E6%88%AA%E5%9B%BE20170928131610.png?raw=true">
-<meta property="og:updated_time" content="2017-09-28T07:34:44.909Z">
+<meta property="og:updated_time" content="2017-09-28T07:42:27.216Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hardware Loop Experiment(continuing..)">
 <meta name="twitter:description" content="I : Closed Loop ExperimentBefore start, i recommend this gitter talk for a quick overview. Due to the lack of basic knowlegae of Mavlink, something is not easy for me. I should compose myself and rela">
@@ -177,7 +177,7 @@
 <p><font color="#ff00ff">NOTE:<br>During this process, i have tried to modify the code in AP_ARMING.cpp and comment lines relative to motor interlock. Although the messgaes above disapper, i encounter some new problem, such as “prearm: check firmware…”. If you have tracked the code, you would kenow new problem is caused by old problem.</font></p>
 <p>Due to the lack of some electirc componet such as a transverter, which translate PWM to PPM, i haven’t verify the whole system.</p>
 <p>Aimming to simplify the system. i divide the work into two parts. <strong>First, i will connect pixhawk2 and heilcopter with FBL to complete whole system. Second, we should configure that through the MP, including the MicroBeast.</strong></p>
-<h3 id="1-1-Hardware-Loop-with-FBL"><a href="#1-1-Hardware-Loop-with-FBL" class="headerlink" title="1.1 Hardware Loop with FBL"></a><strong>1.1 Hardware Loop with FBL</strong></h3><h4 id="1-1-1-Overall-Design"><a href="#1-1-1-Overall-Design" class="headerlink" title="　1.1.1 Overall Design"></a>　<strong>1.1.1 Overall Design</strong></h4><p>Drive signals from the Mavproxy running on the intel control the output of pixawk2 directly. And feedback information ( STATUS messages ) from the pixhawk2<br>relays to the mission planner on your PC.</p>
+<h3 id="1-1-Hardware-Loop-with-FBL"><a href="#1-1-Hardware-Loop-with-FBL" class="headerlink" title="1.1 Hardware Loop with FBL"></a><strong>1.1 Hardware Loop with FBL</strong></h3><h4 id="1-1-1-Overall-Design"><a href="#1-1-1-Overall-Design" class="headerlink" title="　1.1.1 Overall Design"></a>　<strong>1.1.1 Overall Design</strong></h4><p>The drive signals from the Mavproxy running on the intel control the output of the pixawk2 directly. And the feedback information ( STATUS messages ) from the pixhawk2 relays to the mission planner on your PC.</p>
 <p>The SecureCRT is a way to access to your Embeded system via TCP/IP, so you can run the Mavproxy or dronekit to do some missions or scripts.</p>
 <p><font color="#ff00ff">NOTE:<br>During this process, i have ignored the latency in this way. The recommend method is to modify the code and replace it with your own program as you are<br>familiar with the code of arduilot, which is not easy.</font></p>
 <p><img src="https://github.com/dhuangis/pictureforwrite/blob/master/QQ%E6%88%AA%E5%9B%BE20170928131610.png?raw=true" alt="all"></p>
@@ -192,7 +192,7 @@
 
 
 
-    <a data-url="/2017/09/07/interaction/" data-id="cj845d9cs0002bou27zng0vbf" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+    <a data-url="/2017/09/07/interaction/" data-id="cj845jqov0002wku2is4yxt80" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
