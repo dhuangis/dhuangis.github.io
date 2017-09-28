@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="bushipeien">
 <meta property="og:description" content="I : Closed Loop ExperimentBefore start, i recommend this gitter talk for a quick overview. Due to the lack of basic knowlegae of Mavlink, something is not easy for me. I should compose myself and rela">
 <meta property="og:image" content="https://github.com/dhuangis/pictureforwrite/blob/master/QQ%E6%88%AA%E5%9B%BE20170928131610.png?raw=true">
-<meta property="og:updated_time" content="2017-09-28T07:48:42.103Z">
+<meta property="og:updated_time" content="2017-09-28T08:08:02.755Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hardware Loop Experiment(continuing..)">
 <meta name="twitter:description" content="I : Closed Loop ExperimentBefore start, i recommend this gitter talk for a quick overview. Due to the lack of basic knowlegae of Mavlink, something is not easy for me. I should compose myself and rela">
@@ -67,15 +67,15 @@
                         <ul id="main-nav">
                             
                                 <li class="main-nav-list-item" >
-                                    <a class="main-nav-list-link" href="/">Inici</a>
+                                    <a class="main-nav-list-link" href="/">Home</a>
                                 </li>
                             
                                 <li class="main-nav-list-item" >
-                                    <a class="main-nav-list-link" href="/">Categoria</a>
+                                    <a class="main-nav-list-link" href="/">Category</a>
                                 </li>
                             
                                 <li class="main-nav-list-item" >
-                                    <a class="main-nav-list-link" href="/about/index.html">Quant a</a>
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
                                 </li>
                             
                         </ul>
@@ -83,7 +83,7 @@
                             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Cercar" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -104,8 +104,8 @@
         TRANSLATION: {
             POSTS: 'Posts',
             PAGES: 'Pages',
-            CATEGORIES: 'categories',
-            TAGS: 'etiquetes',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -131,7 +131,7 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    Sense categoria
+    uncategorized
     </h1>
 </div>
                         <div class="main-body-content">
@@ -163,9 +163,9 @@
         
         <div class="article-entry" itemprop="articleBody">
             <h2 id="I-Closed-Loop-Experiment"><a href="#I-Closed-Loop-Experiment" class="headerlink" title="I : Closed Loop Experiment"></a><strong>I : Closed Loop Experiment</strong></h2><p>Before start, i recommend this <a href="https://gitter.im/dronekit/dronekit-python?at=561aa20e4e0fa3e55448197d" target="_blank" rel="external">gitter talk</a> for a quick overview. Due to the lack of basic knowlegae of Mavlink, something is not easy for me. I should compose myself and relax a while to make the complex issues simple.</p>
-<p>Frist, i have a idea that the pixhawk2 send mavlink messgaes to GSC via 3DR radios while receving the messgaes by companion computer via UART. We should analyses it’s<br>dismerits and merits.</p>
+<p>Frist, i have a idea that the pixhawk2 send mavlink messgaes to GSC via 3DR radios while receving the messgaes by companion computer via UART. We should analyses it’s dismerits and merits.</p>
 <p>Obviously, the latency of connect via UART is lower than that via RF-link. But we have to use 2nd RF radio to connect between GSC and pixhawk. Actually, we hope the companion computer ( such as edison) can relay the STATUS messgaes to GCS. So, i just compromise myself in some respects.</p>
-<p> Referring to the<br><a href="http://ardupilot.org/copter/docs/traditional-helicopters.html" target="_blank" rel="external">helicopter</a>, i<br> have quickly completed the connection. it’s worth to make efforts to highlight something.</p>
+<p>Referring to the <a href="http://ardupilot.org/copter/docs/traditional-helicopters.html" target="_blank" rel="external">ardupilot</a>, i have quickly completed the connection. it’s worth to make efforts to highlight something.</p>
 <p> When arming, the messgaes “Prearm : motor interlock enabled” appears. And i puzzled for over this problem as i don’t use motor interlock feature. Then, i ask for help in official discussion forum ：<a href="https://discuss.ardupilot.org/t/prarm-motor-interlock-enabled/21056" target="_blank" rel="external">ardupilot</a>. But i get nothing until now.</p>
 <p>Finally, i find a way to solve this prolem.</p>
 <ul>
@@ -179,7 +179,7 @@
 <p>Aimming to simplify the system. i divide the work into two parts. <strong>First, i will connect pixhawk2 and heilcopter with FBL to complete whole system. Second, we should configure that through the MP, including the MicroBeast.</strong></p>
 <h3 id="1-1-Hardware-Loop-with-FBL"><a href="#1-1-Hardware-Loop-with-FBL" class="headerlink" title="1.1 Hardware Loop with FBL"></a><strong>1.1 Hardware Loop with FBL</strong></h3><h4 id="1-1-1-Overall-Design"><a href="#1-1-1-Overall-Design" class="headerlink" title="　1.1.1 Overall Design"></a>　<strong>1.1.1 Overall Design</strong></h4><p>The drive signals from the Mavproxy running on the intel control the output of the pixawk2 directly. And the feedback information ( STATUS messages ) from the pixhawk2 relays to the mission planner on your PC.</p>
 <p>The SecureCRT is a way to access to your embeded system via TCP/IP, so you can run the Mavproxy or dronekit to do some missions or scripts.</p>
-<p><font color="#ff00ff">NOTE:<br>During this process, i have ignored the latency in this way. The recommend method is to modify the code and replace it with your own program as you are<br>familiar with the code of arduilot, which is not easy.</font></p>
+<p><font color="#ff00ff">NOTE:<br>During this process, i have ignored the latency in this way. The recommend method is to modify the code and replace it with your own program as you are familiar with the code of arduilot, which is not easy.</font></p>
 <p><img src="https://github.com/dhuangis/pictureforwrite/blob/master/QQ%E6%88%AA%E5%9B%BE20170928131610.png?raw=true" alt="all"></p>
 <p>　　　　　　　　　　　　　　　　　　<strong>Fig. 1</strong></p>
 <h4 id="1-1-2-Connecting-pixhawk2"><a href="#1-1-2-Connecting-pixhawk2" class="headerlink" title="　1.1.2 Connecting pixhawk2"></a>　<strong>1.1.2 Connecting pixhawk2</strong></h4><p>The connecting is very simple, referring to the  <a href="http://ardupilot.org/copter/docs/trad-heli-connecting-your-rc-input-servos-and-motors.html" target="_blank" rel="external">ardupilot</a>.<br><img src="https://github.com/dhuangis/pictureforwrite/blob/master/100.jpg?raw=true" alt="a"><br>　　　　　　　　　　　　　　　　　　<strong>Fig. 2</strong></p>
@@ -192,7 +192,7 @@
 
 
 
-    <a data-url="/2017/09/07/interaction/" data-id="cj845rnxp0002hsu2kh744exl" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+    <a data-url="/2017/09/07/interaction/" data-id="cj846gli10002j0u2myhlv18v" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -272,7 +272,7 @@
                     <aside id="sidebar">
     <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
     <div class="sidebar-top">
-        <p>seguir:</p>
+        <p>follow:</p>
         <ul class="social-links">
             
                 
@@ -330,7 +330,7 @@
 <nav id="article-nav">
     
         <a href="/2017/09/07/copyright/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">més nou</strong>
+        <strong class="article-nav-caption">newer</strong>
         <p class="article-nav-title">
         
             CopyRight
@@ -341,7 +341,7 @@
     
     
         <a href="/2017/09/07/relationmavproxy/" id="article-nav-older" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">antic</strong>
+        <strong class="article-nav-caption">older</strong>
         <p class="article-nav-title">Mavproxy, Dronekit And Mission Planner</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
@@ -395,7 +395,7 @@
             
                 
     <div class="widget-wrap widget-list">
-        <h3 class="widget-title">arxius</h3>
+        <h3 class="widget-title">archives</h3>
         <div class="widget">
             <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">3</span></li></ul>
         </div>
